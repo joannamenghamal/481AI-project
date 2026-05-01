@@ -118,9 +118,11 @@ Solo project. All components — network design, CPT elicitation, Bayesian infer
 
 This project draws on skills from multiple prior courses:
 
-- **CPSC 483 (Machine Learning / AI)**: Bayesian inference algorithms, probabilistic graphical models, AIMA library
-- **CPSC 362 (Software Engineering)**: Structured development process, modular design, testing methodology
-- **CPSC 466**: Systems-level foundations applied to API integration and data flow architecture
+- **CPSC 481 (Artificial Intelligence)**: Core AI concepts this project directly implements — knowledge representation, probabilistic reasoning, search, and agent design; the AIMA framework used for Bayesian inference originates here
+- **CPSC 483 (Introduction to Machine Learning)**: Bayesian inference algorithms, probabilistic graphical models, supervised/unsupervised learning, and reasoning under uncertainty; provided the AIMA library used in this project
+- **CPSC 335 (Algorithm Engineering)**: Algorithm design and asymptotic analysis applied to the variable elimination algorithm; efficiency comparison between exact and approximate inference methods in Evaluation 3
+- **CPSC 362 (Foundations of Software Engineering)**: Software engineering principles — modular design, structured development process, and testing methodology applied throughout the agent and evaluation pipeline
+- **CPSC 466 (Software Process)**: Agile development practices and iterative process improvement; informed the incremental build approach (network → agent loop → LLM integration → evaluation)
 
 ---
 

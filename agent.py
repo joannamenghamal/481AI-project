@@ -117,7 +117,7 @@ DOMAINS = {
     'DebtRatio':            ['low', 'medium', 'high'],
     'EmergencyFund':        ['none', 'partial', 'adequate'],
     'RiskTolerance':        ['conservative', 'moderate', 'aggressive'],
-    'MarketCondition':      ['bear', 'neutral', 'bull'],
+    'MarketConditions':     ['bear', 'neutral', 'bull'],
     'InvestmentHorizon':    ['short', 'medium', 'long'],
 }
 

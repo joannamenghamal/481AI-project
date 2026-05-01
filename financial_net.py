@@ -13,6 +13,7 @@ Why extend instead of rewrite?
   Everything else (the factor algebra, sum-out, etc.) is reused unchanged.
 """
 
+import random
 from itertools import product
 from probability4e import BayesNet, elimination_ask, ProbDist
 
@@ -59,6 +60,21 @@ class CategoricalBayesNode:
             assert set(dist.keys()) == set(domain), (
                 f"CPT row {parent_vals} for '{variable}' has wrong keys: {set(dist.keys())}"
             )
+
+    def sample(self, event):
+        """
+        Sample a value from P(X | parent values in event).
+        Required by likelihood_weighting in probability4e.py.
+        """
+        parent_vals = tuple(event[par] for par in self.parents)
+        dist = self.cpt[parent_vals]
+        r = random.random()
+        cumulative = 0.0
+        for value, prob in dist.items():
+            cumulative += prob
+            if r < cumulative:
+                return value
+        return list(dist.keys())[-1]  # fallback for floating-point edge case
 
     def p(self, value, event):
         """
@@ -152,7 +168,7 @@ def _score_actions(debt, efund, risk, market, horizon):
     # ---- Rule 2: Emergency fund urgency ---------------------------------
     if efund == 'none':
         scores['build_efund']     += 6.0
-        scores['invest_stocks']   -= 0.5
+        scores['invest_stocks']   -= 2.5   # CFP: fund emergency fund before investing
     elif efund == 'partial':
         scores['build_efund']     += 2.0
 
